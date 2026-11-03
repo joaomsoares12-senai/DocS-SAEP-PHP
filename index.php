@@ -9,6 +9,8 @@
 </head>
 <body>
     <script type="module" src="bootstrap.js"></script>
-    <?php include("MenusNav/menuHorizontal.php")?>
+    <?php include("Nav/menuSimples.php")?>
+
+    <?php include("Main/login.php")?>
 </body>
 </html>
