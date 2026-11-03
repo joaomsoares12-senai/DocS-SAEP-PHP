@@ -1,4 +1,4 @@
-<nav class="navbar md:navbar-expand bg-2">
+<nav class="navbar sm:navbar-expand bg-2">
     <div class="container-fluid">
         <span class="navbar-brand" href="#">
             <img src="imgs/logo.png" alt="logo" width="32" height="32" class="align-bottom">
@@ -26,16 +26,40 @@
             </div>
         </dialog>
 
-        <button class="btn-solid theme-secondary" type="button" data-bs-toggle="menu">
+        <form class="menu" method="POST" id="menuTema">
+            <button class="menu-item" type="submit" name="definirTemaClaro"><i class="bi bi-brightness-high"></i>Claro</button>
+            <button class="menu-item" type="submit" name="definirTemaEscuro"><i class="bi bi-cloud-moon-fill"></i>Escuro</button>
+
+            <?php
+                session_start();
+
+                if(!isset($_SESSION["tema"])) {
+                    $_SESSION["tema"] = "auto";
+                }
+
+                if($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if(isset($_POST["definirTemaEscuro"])) {
+                        $_SESSION["tema"] = "escuro";
+                    } else if(isset($_POST["definirTemaClaro"])) {
+                        $_SESSION["tema"] = "claro";
+                    }
+                }
+
+                //Alterar tema via js
+                if($_SESSION["tema"] == "claro") {
+                    echo "<script> document.documentElement.setAttribute('data-bs-theme', 'light'); </script>";
+                } else if($_SESSION["tema"] == "escuro") {
+                    echo "<script> document.documentElement.setAttribute('data-bs-theme', 'dark'); </script>";
+                }
+            ?>
+        </form>
+
+        <button class="btn-solid theme-secondary ms-auto" type="button" data-bs-toggle="menu" data-bs-target="#menuTema">
             <i class="bi bi-circle-half"></i>Tema
         </button>
-        <div class="menu">
-            <button class="menu-item" onclick="document.documentElement.setAttribute('data-bs-theme', 'light');"><i class="bi bi-brightness-high"></i>Claro</button>
-            <button class="menu-item" onclick="document.documentElement.setAttribute('data-bs-theme', 'dark');"><i class="bi bi-cloud-moon-fill"></i>Escuro</button>
-        </div>
 
         <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer">
-            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </nav>
