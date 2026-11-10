@@ -9,8 +9,9 @@
 </head>
 <body>
     <script type="module" src="bootstrap.js"></script>
-    <main class="vh-100 d-flex justify-content-center align-items-center">
+    <main class="container d-flex gap-5 flex-column">
         <?php require_once("Elementos/forms/login.php")?>
+        <?php require_once("Elementos/forms/cadastroPinguins.php")?>
     </main>
 </body>
 </html>

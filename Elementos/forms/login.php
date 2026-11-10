@@ -59,7 +59,7 @@
 ?>
 
 <!-- Login -->
-<div class="card card-subtle theme-secondary m-auto" style="width:70%; max-width: 500px;">
+<div class="card card-subtle theme-secondary" style="width:70%; max-width: 500px;">
     <div class="card-header">
         <h1>Login</h1>
     </div>
