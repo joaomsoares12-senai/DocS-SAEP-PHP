@@ -9,8 +9,8 @@
 </head>
 <body>
     <script type="module" src="bootstrap.js"></script>
-    <?php include("Nav/menuSimples.php")?>
-
-    <?php include("Main/login.php")?>
+    <main class="vh-100 d-flex justify-content-center align-items-center">
+        <?php require_once("Elementos/forms/login.php")?>
+    </main>
 </body>
 </html>
