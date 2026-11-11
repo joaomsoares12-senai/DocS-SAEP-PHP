@@ -32,11 +32,10 @@
 
             <?php
                 session_start();
-
+                
                 if(!isset($_SESSION["tema"])) {
                     $_SESSION["tema"] = "auto";
                 }
-
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
                     if(isset($_POST["definirTemaEscuro"])) {
                         $_SESSION["tema"] = "escuro";
@@ -45,7 +44,7 @@
                     }
                 }
 
-                //Alterar tema via js
+                //Aplica a alteração do tema novamente, pois a página carrega antes do menu
                 if($_SESSION["tema"] == "claro") {
                     echo "<script> document.documentElement.setAttribute('data-bs-theme', 'light'); </script>";
                 } else if($_SESSION["tema"] == "escuro") {

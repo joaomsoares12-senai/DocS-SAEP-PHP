@@ -9,9 +9,10 @@
 </head>
 <body>
     <script type="module" src="bootstrap.js"></script>
-    <main class="container d-flex gap-5 flex-column">
-        <?php require_once("Elementos/forms/login.php")?>
-        <?php require_once("Elementos/forms/cadastroPinguins.php")?>
+    <?php include("Elementos/nav/menuUsuario.php")?>
+    <main class="d-flex gap-5 p-5">
+        <?php include("Elementos/forms/login.php")?>
+        <?php include("Elementos/forms/cadastroPinguins.php")?>
     </main>
 </body>
 </html>

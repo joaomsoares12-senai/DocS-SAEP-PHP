@@ -21,6 +21,11 @@
     }
 
     if($_SERVER["REQUEST_METHOD"] === "POST") {
+        //Verificação para evitar conflitos entre diferentes requisições POST
+        if(!isset($_POST["email"])) {
+            exit;
+        }
+        
         require_once("conexao/db.php");
 
         $email = $_POST["email"];
@@ -42,7 +47,9 @@
                 if($u["email"] === $email) {
                     if(password_verify($senhaCript, $u["senha"])) {
                         //Cadastra o usuário na sessão
-                        session_start();
+                        if(session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
                         $_SESSION["usuario"] = $u;
 
                         //Redireciona para a página inicial
